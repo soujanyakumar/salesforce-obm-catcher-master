@@ -4,16 +4,20 @@ var router = express.Router();
 
 router.post('/', function(req, res) {
   // get the obm as an object
+  console.log("got the obm call.. processing");
   var message = unwrapMessage(req.body);
   if (!_.isEmpty(message)) {
     // some something #awesome with message
     console.log(message);
+    console.log("sending ack");
     // return a 'true' Ack to Salesforce
     res.send(
       '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://soap.sforce.com/2005/09/outbound"><soapenv:Header/><soapenv:Body><out:notificationsResponse><out:Ack>true</out:Ack></out:notificationsResponse></soapenv:Body></soapenv:Envelope>'
     );
   } else {
     // return a 'false' Ack to Salesforce
+    console.log(message);
+    console.log("sending nack");
     res.send(
       '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://soap.sforce.com/2005/09/outbound"><soapenv:Header/><soapenv:Body><out:notificationsResponse><out:Ack>false</out:Ack></out:notificationsResponse></soapenv:Body></soapenv:Envelope>'
     );
