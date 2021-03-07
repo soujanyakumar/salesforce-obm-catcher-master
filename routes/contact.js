@@ -4,6 +4,12 @@ var router = express.Router();
 
 router.post("/", function (req, res) {
     // do something with req.body
+    console.log("http post on contact. processing...");
+    res.status(201).end();
+}); 
+router.get("/", function (req, res) {
+    // do something with req.body
+    console.log("http get on contact. processing...");
     res.status(201).end();
 }); 
 
