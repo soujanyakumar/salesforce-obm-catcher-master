@@ -7,12 +7,6 @@ router.post("/", function (req, res) {
     console.log("http post on contact. processing...");
     res.status(201).end();
 }); 
-router.get("/", function (req, res) {
-    // do something with req.body
-    console.log("http get on contact. processing...");
-    res.status(201).end();
-}); 
-
 // router.post('/', function (req, res) {
 //     // get the obm as an object
 //     console.log("got the obm call.. processing");
