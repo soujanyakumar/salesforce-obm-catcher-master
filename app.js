@@ -12,10 +12,11 @@ var contact = require('./routes/contact');
 
 var app = express();
 app.set('port', process.env.PORT || 3000);
-
+console.log("started app 1");
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+console.log("started app 2");
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -25,6 +26,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(xmlParser());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+console.log("started app 3");
 
 app.use('/', routes);
 app.use('/obm', obm);
@@ -37,6 +40,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
+console.log("started app 5");
 // error handlers
 
 // development error handler
